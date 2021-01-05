@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const path = require('path')
 const exphbs = require('express-handlebars')
 const todoRoutes = require('./routes/todos')
+const conf = require('./config.json')
 
 const PORT = process.env.PORT || 3000
  
@@ -23,7 +24,9 @@ app.use(todoRoutes)
 
 async function start() {
 	try {
-		await mongoose.connect('mongodb+srv://alex:4858@cluster0.fryke.mongodb.net/todos', {
+		await mongoose.connect(
+		'mongodb+srv://'+conf.login+':'+conf.pass+'@cluster0.o4aom.mongodb.net/'+conf.dbName+'?retryWrites=true&w=majority', 
+		{
 			useNewUrlParser: true,
 			useFindAndModify: false
 		})

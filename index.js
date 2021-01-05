@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars')
 const todoRoutes = require('./routes/todos')
 const conf = require('./config.json')
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 80;
  
 const app = express()
 const hbs = exphbs.create({
@@ -25,7 +25,7 @@ app.use(todoRoutes)
 async function start() {
 	try {
 		await mongoose.connect(
-		'mongodb+srv://'+conf.login+':'+conf.pass+'@cluster0.o4aom.mongodb.net/'+conf.dbName+'?retryWrites=true&w=majority', 
+		'mongodb+srv://'+conf.login+':'+conf.pass+'@cluster0.fryke.mongodb.net/'+conf.dbName+'?retryWrites=true&w=majority', 
 		{
 			useNewUrlParser: true,
 			useFindAndModify: false
